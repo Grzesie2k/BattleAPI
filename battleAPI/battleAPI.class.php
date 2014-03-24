@@ -1,5 +1,10 @@
 <?php
-class BattleAPI {
+/**
+ * BattleAPI is a simple API for Battlelog written in PHP
+ * @author Grzegorz Kielak <grzesie.k@o2.pl>
+ * @version 140306
+ */
+class battleAPI {
 	private $cfg;
 	public function __construct($iniCfgFile='config.ini'){
 		$this->loadCfg($iniCfgFile);
@@ -28,11 +33,11 @@ class BattleAPI {
 		$debug="$message in <b>$debug[file]</b> with <b>$debug[class]$debug[type]$debug[function]</b> on line <b>$debug[line]</b>";
 		return !trigger_error($debug);
 	}
-	private function isValidQuery($game,$platform,$object,$param,$value){
-		if(!$this->loadGame($game))								return $this->error("Invalid query parameter 1 '$game'");
-		if(!isset($this->game[$game]['platforms'][$platform]))	return $this->error("Invalid query parameter 2 '$platform'");
-		if(!isset($this->game[$game]['url'][$object]))			return $this->error("Invalid query parameter 3 '$object'");
-		if(!isset($this->game[$game]['url'][$object][$param]))	return $this->error("Invalid query parameter 4 '$param'");
+	private function isValIdQuery($game,$platform,$object,$param,$value){
+		if(!$this->loadGame($game))								return $this->error("InvalId query parameter 1 '$game'");
+		if(!isset($this->game[$game]['platforms'][$platform]))	return $this->error("InvalId query parameter 2 '$platform'");
+		if(!isset($this->game[$game]['url'][$object]))			return $this->error("InvalId query parameter 3 '$object'");
+		if(!isset($this->game[$game]['url'][$object][$param]))	return $this->error("InvalId query parameter 4 '$param'");
 		$keys=$this->getQueryKeys($game,$object,$param);
 		if(count($keys)==1 && is_string($value)){
 			$keys=array_values($keys);
@@ -62,23 +67,23 @@ class BattleAPI {
 		return ($this->loadGame($game) && isset($this->game[$game]['url'][$object]))?array_keys($this->game[$game]['url'][$object]):false;
 	}
 	public function getQueryKeys($game,$object,$param){
-		if(!$this->loadGame($game)) return $this->error("Invalid game '$object'");
-		if(!isset($this->game[$game]['url'][$object])) return $this->error("Invalid object '$object'");
-		if(!isset($this->game[$game]['url'][$object][$param])) return $this->error("Invalid param '$param'");
+		if(!$this->loadGame($game)) return $this->error("InvalId game '$object'");
+		if(!isset($this->game[$game]['url'][$object])) return $this->error("InvalId object '$object'");
+		if(!isset($this->game[$game]['url'][$object][$param])) return $this->error("InvalId param '$param'");
 		if(!preg_match_all('/\{([a-zA-Z0-9]+)\}/',$this->game[$game]['url'][$object][$param],$keys))
 			return true;
 		foreach($keys[1] as $k=>$key){
-			if(in_array($key,array('platform','platformID'))) unset($keys[1][$k]);
+			if(in_array($key,array('platform','platformId'))) unset($keys[1][$k]);
 		}
 		return $keys[1];
 	}
 	public function get($game,$platform,$object,$param,$value){
-		$k=$this->isValidQuery($game,$platform,$object,$param,$value);
+		$k=$this->isValIdQuery($game,$platform,$object,$param,$value);
 		if(!$k) return false;
 		if(is_string($k))
 			$value=array($k=>$value);
 		$value['platform']=$platform;
-		$value['platformID']=$this->game[$game]['platforms'][$platform];
+		$value['platformId']=$this->game[$game]['platforms'][$platform];
 		foreach($value as $k=>$v){
 			$search[]='{'.$k.'}';
 			$replace[]=$v;
