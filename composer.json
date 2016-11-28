@@ -1,0 +1,23 @@
+{
+  "name": "Grzesie2k/BattleAPI",
+  "description": "description_text",
+  "homepage": "https://github.com/Grzesie2k/BattleAPI",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Grzegorz Kielak",
+      "homepage": "http://grzesie2k.github.io"
+    }
+  ],
+  "require": {
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "BattleAPI\\": "src/"
+    }
+  }
+}
