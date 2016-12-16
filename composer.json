@@ -2,7 +2,6 @@
   "name": "Grzesie2k/BattleAPI",
   "description": "description_text",
   "homepage": "https://github.com/Grzesie2k/BattleAPI",
-  "minimum-stability": "dev",
   "license": "MIT",
   "type": "library",
   "authors": [
@@ -12,12 +11,20 @@
     }
   ],
   "require": {
+    "php": ">=5.4.0",
+    "ext-curl": "*"
   },
   "require-dev": {
+    "phpunit/phpunit": "5.5.*"
   },
   "autoload": {
     "psr-4": {
       "BattleAPI\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BattleAPI\\Tests\\": "tests/"
     }
   }
 }
