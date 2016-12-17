@@ -1,6 +1,13 @@
 {
   "name": "grzesie2k/battleapi",
-  "description": "BattleAPI is a simple, unofficial Battlelog API in PHP",
+  "description": "Battlelog API in PHP",
+  "keywords": [
+    "Battlelog",
+    "Battlefield",
+    "api",
+    "bf",
+    "mohw"
+  ],
   "homepage": "https://github.com/Grzesie2k/BattleAPI",
   "license": "MIT",
   "type": "library",
