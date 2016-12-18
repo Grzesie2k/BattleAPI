@@ -22,11 +22,8 @@ class SimpleResponse extends \stdClass implements Response
         if ($response === null) {
             throw new Exception("Cannot parse JSON response", json_last_error());
         }
-        if ($response->type !== 'success') {
-            throw new Exception("Not successful response (type: {$response->type})");
-        }
 
-        foreach ($response->data as $key => $value) {
+        foreach ($response as $key => $value) {
             $this->$key = $value;
         }
     }
