@@ -1,6 +1,5 @@
-<?php namespace Game;
+<?php namespace BattleAPI\Game;
 
-use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
 
 interface Soldier
