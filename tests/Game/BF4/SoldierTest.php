@@ -1,78 +1,98 @@
-<?php namespace BattleAPI\Game\BF4;
+<?php namespace BattleAPI\Tests\Game\BF4;
 
+use BattleAPI\Game\BF4\Soldier;
+use BattleAPI\Game\Platform;
+use BattleAPI\Response\Response;
 use PHPUnit\Framework\TestCase;
 
 class SoldierTest extends TestCase
 {
+    /** @var Soldier */
+    protected $soldier;
 
     public function setUp()
     {
-
+        $soldierId = '320812621';
+        $platform = new Platform(Platform::PC);
+        $this->soldier = new Soldier($soldierId, $platform);
     }
 
     public function testGetPlatform()
     {
-        // @TODO Add test implementation
+        $platform = new Platform(Platform::PC);
+        $this->assertEquals($platform, $this->soldier->getPlatform());
     }
 
     public function testGetOverview()
     {
-        // @TODO Add test implementation
+        $soldierOverview = $this->soldier->getOverview();
+        $this->assertInstanceOf(Response::class, $soldierOverview);
     }
 
     public function testGetHistory()
     {
-        // @TODO Add test implementation
+        $soldierHistory = $this->soldier->getHistory();
+        $this->assertInstanceOf(Response::class, $soldierHistory);
     }
 
     public function testGetVehicles()
     {
-        // @TODO Add test implementation
+        $soldierVehicles = $this->soldier->getVehicles();
+        $this->assertInstanceOf(Response::class, $soldierVehicles);
     }
 
     public function testGetReports()
     {
-        // @TODO Add test implementation
+        $soldierReports = $this->soldier->getReports();
+        $this->assertInstanceOf(Response::class, $soldierReports);
     }
 
     public function testGetPopulateStats()
     {
-        // @TODO Add test implementation
+        $soldierPopulateStats = $this->soldier->getPopulateStats();
+        $this->assertInstanceOf(Response::class, $soldierPopulateStats);
     }
 
     public function testGetDogTags()
     {
-        // @TODO Add test implementation
+        $soldierDogTags = $this->soldier->getDogTags();
+        $this->assertInstanceOf(Response::class, $soldierDogTags);
     }
 
     public function testGetWeaponsUnlocks()
     {
-        // @TODO Add test implementation
+        $soldierWeaponsUnlocks = $this->soldier->getWeaponsUnlocks();
+        $this->assertInstanceOf(Response::class, $soldierWeaponsUnlocks);
     }
 
     public function testGetVehiclesUnlocks()
     {
-        // @TODO Add test implementation
+        $soldierVehiclesUnlocks = $this->soldier->getVehiclesUnlocks();
+        $this->assertInstanceOf(Response::class, $soldierVehiclesUnlocks);
     }
 
     public function testGetKit()
     {
-        // @TODO Add test implementation
+        $soldierKit = $this->soldier->getKit();
+        $this->assertInstanceOf(Response::class, $soldierKit);
     }
 
     public function testGetLoadout()
     {
-        // @TODO Add test implementation
+        $soldierLoadout = $this->soldier->getLoadout();
+        $this->assertInstanceOf(Response::class, $soldierLoadout);
     }
 
     public function testGetMissions()
     {
-        // @TODO Add test implementation
+        $soldierMissions = $this->soldier->getMissions();
+        $this->assertInstanceOf(Response::class, $soldierMissions);
     }
 
     public function testGetBattlePacks()
     {
-        // @TODO Add test implementation
+        $soldierBattlePacks = $this->soldier->getBattlePacks();
+        $this->assertInstanceOf(Response::class, $soldierBattlePacks);
     }
 
 }

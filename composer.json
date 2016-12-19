@@ -19,10 +19,15 @@
   ],
   "require": {
     "php": ">=5.4.0",
+    "psr/log": "~1.0.2",
     "ext-curl": "*"
   },
   "require-dev": {
+    "monolog/monolog": "~1.22.0",
     "phpunit/phpunit": "5.5.*"
+  },
+  "suggests": {
+    "monolog/monolog": "Allow log communication to Battlelog"
   },
   "autoload": {
     "psr-4": {

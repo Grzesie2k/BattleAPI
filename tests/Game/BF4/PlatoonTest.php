@@ -7,18 +7,25 @@ use PHPUnit\Framework\TestCase;
 
 class PlatoonTest extends TestCase
 {
+    /** @var Platoon */
+    protected $platoon;
+
     public function setUp()
     {
-
+        $platoonId = '6955123057977347980';
+        $platform = new Platform(Platform::PC);
+        $this->platoon = new Platoon($platoonId, $platform);
     }
 
     public function testGetMembers()
     {
-        // @TODO Add testGetMembers
+        $platoonMembers = $this->platoon->getMembers();
+        $this->assertInstanceOf(Response::class, $platoonMembers);
     }
 
     public function testGetInfo()
     {
-        // @TODO Add testGetInfo
+        $platoonInfo = $this->platoon->getInfo();
+        $this->assertInstanceOf(Response::class, $platoonInfo);
     }
 }

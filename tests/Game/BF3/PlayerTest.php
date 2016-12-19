@@ -25,7 +25,5 @@ class PlayerTest extends TestCase
         $playerName = 'Grzesie2k';
         $playerFindResponse = Player::find($playerName);
         $this->assertInstanceOf(Response::class, $playerFindResponse);
-        $this->assertCount(1, $playerFindResponse->matches);
-        $this->assertEquals($playerName, $playerFindResponse->matches[0]->user->username);
     }
 }

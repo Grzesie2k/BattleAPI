@@ -3,6 +3,7 @@
 use BattleAPI\Game;
 use BattleAPI\Response\Response;
 use BattleAPI\Response\SimpleResponse;
+use Psr\Log\LoggerInterface;
 
 abstract class Client
 {
@@ -14,6 +15,15 @@ abstract class Client
     /** HTTP METHODS */
     const GET = 'GET';
     const POST = 'POST';
+
+    /** @var  LoggerInterface */
+    protected static $logger;
+
+    public static function setLogger(LoggerInterface $logger)
+    {
+        static::$logger = $logger;
+    }
+
 
     /**
      * @return Game\Game[]
@@ -30,13 +40,16 @@ abstract class Client
     /**
      * @param string $method
      * @param string $url
-     * @param array|null $data
+     * @param array $data
      * @param string $class
      * @return Response
      * @throws Exception
      */
-    public static function request($method, $url, array $data = null, $class = SimpleResponse::class)
+    public static function request($method, $url, array $data = [], $class = SimpleResponse::class)
     {
+        if (static::$logger) {
+            static::$logger->debug("Request: {$url}", $data);
+        }
         $curl = curl_init($url);
         curl_setopt_array($curl, [
             CURLOPT_FOLLOWLOCATION => false,
@@ -56,6 +69,10 @@ abstract class Client
 
         if ($result === false) {
             throw new Exception(curl_error($curl), curl_errno($curl));
+        }
+
+        if (static::$logger) {
+            static::$logger->debug("Response: {$result}");
         }
 
         $curlInfo = curl_getinfo($curl);
