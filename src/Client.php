@@ -1,6 +1,5 @@
 <?php namespace BattleAPI;
 
-use BattleAPI\Game;
 use BattleAPI\Response\Response;
 use BattleAPI\Response\SimpleResponse;
 use Psr\Log\LoggerInterface;
@@ -22,19 +21,6 @@ abstract class Client
     public static function setLogger(LoggerInterface $logger)
     {
         static::$logger = $logger;
-    }
-
-
-    /**
-     * @return Game\Game[]
-     */
-    public function getGames()
-    {
-        return [
-            new Game\BF3\Game(),
-            new Game\BF4\Game(),
-            new Game\MOHW\Game()
-        ];
     }
 
     /**
