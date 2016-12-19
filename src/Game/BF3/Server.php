@@ -1,4 +1,4 @@
-<?php namespace BattleAPI\Game\BF4;
+<?php namespace BattleAPI\Game\BF3;
 
 use BattleAPI\Client;
 use BattleAPI\Game\Platform;

@@ -23,6 +23,22 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return Platform
+     */
+    public function getPlatform()
+    {
+        return $this->platform;
+    }
+
+    /**
      * @return SimpleResponse
      * @TODO Add Response class
      */
