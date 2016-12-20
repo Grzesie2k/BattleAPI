@@ -39,16 +39,18 @@ class Server implements \BattleAPI\Game\Server
     }
 
     /**
-     * @return SimpleResponse\n@TODO Add Response class
+     * @return SimpleResponse
+     * @TODO Add Response class
      */
     public function getInfo()
     {
-        $url = Game::ENDPOINT . "servers/show/{$this->platform->getCode()}/{$this->id}/?json=1";
+        $url = Game::ENDPOINT . "/servers/show/{$this->platform->getCode()}/{$this->id}/?json=1";
         return Client::request(Client::GET, $url);
     }
 
     /**
-     * @return SimpleResponse\n@TODO Add Response class
+     * @return SimpleResponse
+     * @TODO Add Response class
      */
     public function getStatus()
     {
@@ -57,7 +59,8 @@ class Server implements \BattleAPI\Game\Server
     }
 
     /**
-     * @return SimpleResponse\n@TODO Add Response class
+     * @return SimpleResponse
+     * @TODO Add Response class
      */
     public function getPlayers()
     {

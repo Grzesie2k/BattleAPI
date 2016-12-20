@@ -44,7 +44,7 @@ class Server implements \BattleAPI\Game\Server
      */
     public function getInfo()
     {
-        $url = Game::ENDPOINT . "servers/show/{$this->platform->getCode()}/{$this->id}/?json=1";
+        $url = Game::ENDPOINT . "/servers/show/{$this->platform->getCode()}/{$this->id}/?json=1";
         return Client::request(Client::GET, $url);
     }
 
