@@ -1,7 +1,7 @@
 <?php namespace BattleAPI;
 
 use BattleAPI\Response\Response;
-use BattleAPI\Response\SimpleResponse;
+use BattleAPI\Response\JsonResponse;
 use Psr\Log\LoggerInterface;
 
 abstract class Client
@@ -39,7 +39,7 @@ abstract class Client
      * @return Response
      * @throws Exception
      */
-    public static function request($method, $url, array $data = [], $class = SimpleResponse::class)
+    public static function request($method, $url, array $data = [], $class = JsonResponse::class)
     {
         if (static::$logger) {
             static::$logger->debug("Request: {$url}", $data);

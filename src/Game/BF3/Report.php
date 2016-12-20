@@ -2,7 +2,7 @@
 
 use BattleAPI\Client;
 use BattleAPI\Game\Platform;
-use BattleAPI\Response\SimpleResponse;
+use BattleAPI\Response\JsonResponse;
 
 class Report
 {
@@ -23,7 +23,7 @@ class Report
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * TODO Add Response class
      */
     public function getGeneralInfo()

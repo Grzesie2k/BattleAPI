@@ -5,7 +5,7 @@ use BattleAPI\Exception;
 /**
  * Parse Response as JSON to \stdClass
  */
-class SimpleResponse extends \stdClass implements Response
+class JsonResponse extends \stdClass implements Response
 {
     /**
      * @param array $info

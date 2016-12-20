@@ -2,7 +2,7 @@
 
 use BattleAPI\Client;
 use BattleAPI\Game\Platform;
-use BattleAPI\Response\SimpleResponse;
+use BattleAPI\Response\JsonResponse;
 
 class Soldier implements \BattleAPI\Game\Soldier
 {
@@ -39,7 +39,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getOverview()
@@ -49,7 +49,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getHistory()
@@ -59,7 +59,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getVehicles()
@@ -69,7 +69,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getReports()
@@ -79,7 +79,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getPopulateStats()
@@ -89,7 +89,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getDogTags()
@@ -99,7 +99,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getWeaponsUnlocks()
@@ -109,7 +109,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getVehiclesUnlocks()
@@ -119,7 +119,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getKit()
@@ -129,7 +129,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getLoadout()
@@ -139,7 +139,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getMissions()
@@ -149,7 +149,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getBattlePacks()

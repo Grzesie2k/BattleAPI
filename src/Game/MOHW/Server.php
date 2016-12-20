@@ -2,7 +2,7 @@
 
 use BattleAPI\Client;
 use BattleAPI\Game\Platform;
-use BattleAPI\Response\SimpleResponse;
+use BattleAPI\Response\JsonResponse;
 
 class Server implements \BattleAPI\Game\Server
 {
@@ -39,7 +39,7 @@ class Server implements \BattleAPI\Game\Server
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getInfo()
@@ -49,7 +49,7 @@ class Server implements \BattleAPI\Game\Server
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getStatus()
@@ -59,7 +59,7 @@ class Server implements \BattleAPI\Game\Server
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getPlayers()

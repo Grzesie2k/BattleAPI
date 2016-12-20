@@ -1,7 +1,7 @@
 <?php namespace BattleAPI\Game\BF3;
 
 use BattleAPI\Client;
-use BattleAPI\Response\SimpleResponse;
+use BattleAPI\Response\JsonResponse;
 
 class Player implements \BattleAPI\Game\Player
 {
@@ -26,7 +26,7 @@ class Player implements \BattleAPI\Game\Player
 
     /**
      * @param string $playerName
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public static function find($playerName)
@@ -36,7 +36,7 @@ class Player implements \BattleAPI\Game\Player
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getInfo()

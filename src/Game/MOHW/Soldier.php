@@ -2,7 +2,7 @@
 
 use BattleAPI\Client;
 use BattleAPI\Game\Platform;
-use BattleAPI\Response\SimpleResponse;
+use BattleAPI\Response\JsonResponse;
 
 class Soldier implements \BattleAPI\Game\Soldier
 {
@@ -39,7 +39,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getOverview()
@@ -49,7 +49,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getDetailed()
@@ -59,7 +59,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getTours()
@@ -69,7 +69,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getAwards()
@@ -79,7 +79,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getWeapons()
@@ -89,7 +89,7 @@ class Soldier implements \BattleAPI\Game\Soldier
     }
 
     /**
-     * @return SimpleResponse
+     * @return JsonResponse
      * @TODO Add Response class
      */
     public function getSoldiers()
