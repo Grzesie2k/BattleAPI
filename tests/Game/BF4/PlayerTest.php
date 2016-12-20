@@ -1,31 +1,9 @@
 <?php namespace BattleAPI\Tests\Game\BF4;
 
 use BattleAPI\Game\BF4\Player;
-use BattleAPI\Response\Response;
+use BattleAPI\Tests\Game\PlayerTestCase;
 
-class PlayerTest extends TestCase
+class PlayerTest extends PlayerTestCase
 {
-    /** @var Player */
-    protected $player;
-
-    public function setUp()
-    {
-        parent::setUp();
-        $playerId = '320812621';
-        $this->player = new Player($playerId);
-    }
-
-    public function testGetInfo()
-    {
-        $playerInfo = $this->player->getInfo();
-        $this->assertInstanceOf(Response::class, $playerInfo);
-    }
-
-    public function testFind(){
-        $playerName = 'Grzesie2k';
-        $playerFindResponse = Player::find($playerName);
-        $this->assertInstanceOf(Response::class, $playerFindResponse);
-        $this->assertCount(1, $playerFindResponse->matches);
-        $this->assertEquals($playerName, $playerFindResponse->matches[0]->user->username);
-    }
+    protected $playerClass = Player::class;
 }

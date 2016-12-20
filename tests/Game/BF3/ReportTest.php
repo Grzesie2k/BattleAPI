@@ -3,6 +3,7 @@
 use BattleAPI\Game\BF3\Report;
 use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
+use BattleAPI\Tests\TestCase;
 
 class ReportTest extends TestCase
 {

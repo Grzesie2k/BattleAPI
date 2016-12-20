@@ -3,6 +3,7 @@
 use BattleAPI\Game\BF3\Soldier;
 use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
+use BattleAPI\Tests\TestCase;
 
 class SoldierTest extends TestCase
 {

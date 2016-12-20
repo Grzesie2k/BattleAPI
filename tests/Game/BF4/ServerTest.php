@@ -3,6 +3,7 @@
 use BattleAPI\Game\BF4\Server;
 use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
+use BattleAPI\Tests\TestCase;
 
 class ServerTest extends TestCase
 {

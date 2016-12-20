@@ -3,6 +3,7 @@
 use BattleAPI\Game\MOHW\Server;
 use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
+use BattleAPI\Tests\TestCase;
 
 class ServerTest extends TestCase
 {

@@ -4,6 +4,7 @@ use BattleAPI\Game\BF4\Report;
 use BattleAPI\Game\BF4\Soldier;
 use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
+use BattleAPI\Tests\TestCase;
 
 class ReportTest extends TestCase
 {
