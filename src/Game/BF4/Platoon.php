@@ -2,6 +2,7 @@
 
 use BattleAPI\Client;
 use BattleAPI\Game\Platform;
+use BattleAPI\Response\HtmlResponse;
 use BattleAPI\Response\SimpleResponse;
 
 class Platoon implements \BattleAPI\Game\Platoon
@@ -42,16 +43,16 @@ class Platoon implements \BattleAPI\Game\Platoon
     public function getInfo()
     {
         $url = Game::ENDPOINT . "/platoons/view/{$this->id}/";
-        return Client::request(Client::GET, $url);
+        return Client::request(Client::GET, $url, [], HtmlResponse::class);
     }
 
     /**
-     * @return SimpleResponse
+     * @return HtmlResponse
      * @TODO Add Response class
      */
     public function getMembers()
     {
         $url = Game::ENDPOINT . "/platoons/members/{$this->id}/";
-        return Client::request(Client::GET, $url);
+        return Client::request(Client::GET, $url, [], HtmlResponse::class);
     }
 }
