@@ -10,6 +10,8 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
     {
         $logger = new Logger('BattleAPI');
         $logger->pushHandler(new StreamHandler('php://stdout'));
+
         Client::setLogger($logger);
+        Client::setTimeout(10000);
     }
 }

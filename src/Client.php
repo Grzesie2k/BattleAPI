@@ -23,6 +23,14 @@ abstract class Client
         static::$logger = $logger;
     }
 
+    /** @var int cURL timeout in ms */
+    protected static $timeout = 1000;
+
+    public static function setTimeout($timeout)
+    {
+        static::$timeout = $timeout;
+    }
+
     /**
      * @param string $method
      * @param string $url
@@ -37,18 +45,24 @@ abstract class Client
             static::$logger->debug("Request: {$url}", $data);
         }
         $curl = curl_init($url);
-        curl_setopt_array($curl, [
-            CURLOPT_FOLLOWLOCATION => false,
-            CURLOPT_USERAGENT => static::USERAGENT,
-            CURLOPT_TIMEOUT => 1,
-            CURLOPT_RETURNTRANSFER => true,
-        ]);
+        curl_setopt_array(
+            $curl,
+            [
+                CURLOPT_FOLLOWLOCATION => false,
+                CURLOPT_USERAGENT => static::USERAGENT,
+                CURLOPT_TIMEOUT_MS => static::$timeout,
+                CURLOPT_RETURNTRANSFER => true,
+            ]
+        );
         switch ($method) {
             case Client::POST:
-                curl_setopt_array($curl, [
-                    CURLOPT_POST => true,
-                    CURLOPT_POSTFIELDS => $data
-                ]);
+                curl_setopt_array(
+                    $curl,
+                    [
+                        CURLOPT_POST => true,
+                        CURLOPT_POSTFIELDS => $data,
+                    ]
+                );
         }
 
         $result = curl_exec($curl);
@@ -63,6 +77,7 @@ abstract class Client
 
         $curlInfo = curl_getinfo($curl);
         curl_close($curl);
+
         return new $class($curlInfo, $result);
     }
 }
