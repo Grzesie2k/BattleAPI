@@ -35,14 +35,14 @@ abstract class Client
      * @param string $method
      * @param string $url
      * @param array $data
-     * @param string $class
+     * @param string $responseClass
      * @return Response
      * @throws Exception
      */
-    public static function request($method, $url, array $data = [], $class = JsonResponse::class)
+    public static function request($method, $url, array $data = [], $responseClass = JsonResponse::class)
     {
         if (static::$logger) {
-            static::$logger->debug("Request: {$url}", $data);
+            static::$logger->debug("Request: {$method} {$url}", $data);
         }
         $curl = curl_init($url);
         curl_setopt_array(
@@ -54,30 +54,33 @@ abstract class Client
                 CURLOPT_RETURNTRANSFER => true,
             ]
         );
-        switch ($method) {
-            case Client::POST:
-                curl_setopt_array(
-                    $curl,
-                    [
-                        CURLOPT_POST => true,
-                        CURLOPT_POSTFIELDS => $data,
-                    ]
-                );
+
+        if ($method === Client::POST) {
+            curl_setopt_array(
+                $curl,
+                [
+                    CURLOPT_POST => true,
+                    CURLOPT_POSTFIELDS => $data,
+                ]
+            );
         }
 
-        $result = curl_exec($curl);
+        $response = curl_exec($curl);
 
-        if ($result === false) {
+        if ($response === false) {
             throw new Exception(curl_error($curl), curl_errno($curl));
         }
 
         if (static::$logger) {
-            static::$logger->debug("Response: {$result}");
+            static::$logger->debug("Response: <{$responseClass}> {$response}");
         }
 
         $curlInfo = curl_getinfo($curl);
         curl_close($curl);
 
-        return new $class($curlInfo, $result);
+        /** @var Response $result */
+        $result = new $responseClass($curlInfo, $response);
+
+        return $result;
     }
 }
