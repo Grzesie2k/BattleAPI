@@ -3,7 +3,6 @@
 use BattleAPI\Game\BF3\Report;
 use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
-use PHPUnit\Framework\TestCase;
 
 class ReportTest extends TestCase
 {
@@ -12,6 +11,7 @@ class ReportTest extends TestCase
 
     public function setUp()
     {
+        parent::setUp();
         $platform = new Platform(Platform::PC);
         $reportId = '86712057';
         $this->report = new Report($reportId, $platform);

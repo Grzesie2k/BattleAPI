@@ -3,7 +3,6 @@
 use BattleAPI\Game\BF3\Soldier;
 use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
-use PHPUnit\Framework\TestCase;
 
 class SoldierTest extends TestCase
 {
@@ -12,6 +11,7 @@ class SoldierTest extends TestCase
 
     public function setUp()
     {
+        parent::setUp();
         $platform = new Platform(Platform::PC);
         $soldierId = '320812621';
         $this->soldier = new Soldier($soldierId, $platform);

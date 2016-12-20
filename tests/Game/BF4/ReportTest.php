@@ -4,7 +4,6 @@ use BattleAPI\Game\BF4\Report;
 use BattleAPI\Game\BF4\Soldier;
 use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
-use PHPUnit\Framework\TestCase;
 
 class ReportTest extends TestCase
 {
@@ -16,6 +15,7 @@ class ReportTest extends TestCase
 
     public function setUp()
     {
+        parent::setUp();
         $reportId = '785918888624857280';
         $soldierId = '320812621';
         $platform = new Platform(Platform::PC);

@@ -3,7 +3,6 @@
 use BattleAPI\Game\BF3\Platoon;
 use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
-use PHPUnit\Framework\TestCase;
 
 class PlatoonTest extends TestCase
 {
@@ -12,6 +11,7 @@ class PlatoonTest extends TestCase
 
     public function setUp()
     {
+        parent::setUp();
         $platoonId = '2832655391989042266';
         $platform = new Platform(Platform::PC);
         $this->platoon = new Platoon($platoonId, $platform);

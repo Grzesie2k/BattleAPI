@@ -3,7 +3,6 @@
 use BattleAPI\Game\BF4\Server;
 use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
-use PHPUnit\Framework\TestCase;
 
 class ServerTest extends TestCase
 {
@@ -12,6 +11,7 @@ class ServerTest extends TestCase
 
     public function setUp()
     {
+        parent::setUp();
         $serverId = '7f572ebc-56b6-4f1e-adc2-7f6441f87749';
         $platform = new Platform(Platform::PC);
         $this->server = new Server($serverId, $platform);

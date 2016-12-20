@@ -3,7 +3,6 @@
 use BattleAPI\Game\BF4\Platoon;
 use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
-use PHPUnit\Framework\TestCase;
 
 class PlatoonTest extends TestCase
 {
@@ -12,6 +11,7 @@ class PlatoonTest extends TestCase
 
     public function setUp()
     {
+        parent::setUp();
         $platoonId = '6955123057977347980';
         $platform = new Platform(Platform::PC);
         $this->platoon = new Platoon($platoonId, $platform);

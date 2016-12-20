@@ -3,7 +3,6 @@
 use BattleAPI\Game\MOHW\Server;
 use BattleAPI\Game\Platform;
 use BattleAPI\Response\Response;
-use PHPUnit\Framework\TestCase;
 
 class ServerTest extends TestCase
 {
@@ -12,6 +11,7 @@ class ServerTest extends TestCase
 
     public function setUp()
     {
+        parent::setUp();
         $serverId = '944888d5-15f7-4fa1-b05c-9e3492ac843d';
         $platform = new Platform(Platform::PC);
         $this->server = new Server($serverId, $platform);

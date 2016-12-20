@@ -2,7 +2,6 @@
 
 use BattleAPI\Game\MOHW\Player;
 use BattleAPI\Response\Response;
-use PHPUnit\Framework\TestCase;
 
 class PlayerTest extends TestCase
 {
@@ -11,6 +10,7 @@ class PlayerTest extends TestCase
 
     public function setUp()
     {
+        parent::setUp();
         $playerId = '320812621';
         $this->player = new Player($playerId);
     }
