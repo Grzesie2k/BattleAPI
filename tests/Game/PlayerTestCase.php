@@ -33,7 +33,5 @@ abstract class PlayerTestCase extends TestCase
     public function testFind(){
         $playerFindResponse = call_user_func("{$this->playerClass}::find", $this->playerName);
         $this->assertInstanceOf(Response::class, $playerFindResponse);
-        $this->assertCount(1, $playerFindResponse->matches);
-        $this->assertEquals($this->playerName, $playerFindResponse->matches[0]->user->username);
     }
 }
